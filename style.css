@@ -1,0 +1,119 @@
+/* Apply a background image and some basic styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('bg.jpeg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Center the app in the viewport */
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Main container styling */
+main {
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Styling for the search box */
+.search-box {
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: calc(100% - 20px); /* Adjust width to prevent touching borders */
+    padding: 15px;
+    font-size: 18px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    background: #fff; /* White background for the input */
+}
+
+/* Focus styling for the search box input */
+.search-box input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+/* Loading spinner styling */
+.loading {
+    display: none; /* Hidden by default */
+    margin: 20px 0;
+    font-size: 18px;
+    color: #4a90e2;
+}
+
+/* Add spinner animation */
+.loading::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 4px solid #ddd;
+    border-top: 4px solid #4a90e2;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Location and current weather styling */
+.location .city, .location .date {
+    margin: 10px 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.current .temp {
+    font-size: 72px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.current .weather {
+    font-size: 28px;
+    color: #555;
+}
+
+.current .hi-low {
+    font-size: 22px;
+    color: #777;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+    main {
+        padding: 20px;
+    }
+
+    .search-box input {
+        font-size: 16px;
+        padding: 12px;
+        width: calc(100% - 24px); /* Adjust width for smaller screens */
+    }
+
+    .current .temp {
+        font-size: 60px;
+    }
+
+    .current .weather, .current .hi-low {
+        font-size: 20px;
+    }
+}
